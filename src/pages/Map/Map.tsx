@@ -22,9 +22,8 @@ function Map() {
   function fetchFence(){
     axios.get('http://54.198.103.75:3000/api/v1/admin/fence')
     .then((res)=>{
-      
-      if(res.data.fence)
-      setFence(res.data.fence.points)
+      if(res.data.fence){
+      setFence(res.data.fence.points)}
     })
     .catch((err)=>{
       console.log(err);
