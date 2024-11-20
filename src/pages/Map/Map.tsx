@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
-import { LayersControl, Marker, Polygon, useMap } from 'react-leaflet'
+import {  Marker, Polygon, useMap } from 'react-leaflet'
 import { markedPresent } from "../../Store/User";
 import { useSetRecoilState } from "recoil";
 import 'leaflet/dist/leaflet.css';
@@ -24,7 +24,7 @@ function Map() {
     .then((res)=>{
       setFence(res.data.fence.points)
     })
-    .catch((err)=>{
+    .catch(()=>{
       alert("error getting fence");
     })
   }
@@ -32,6 +32,8 @@ function Map() {
   useEffect(()=>{
     fetchFence();
     getLocation();
+    console.log(error);
+    
     
   },[])
 
