@@ -20,7 +20,7 @@ function Map() {
   const navigate = useNavigate();
 
   function fetchFence(){
-    axios.get('http://54.198.103.75:3000/api/v1/admin/fence')
+    axios.get('http://43.204.107.200/:3000/api/v1/admin/fence')
     .then((res)=>{
       if(res.data.fence){
       setFence(res.data.fence.points)}
@@ -42,7 +42,7 @@ function Map() {
 
   function markAttendanceOnSite(){
     //api call to check if inside premise or not
-    axios.post('http://54.198.103.75:3000/api/v1/user/isinside',{points:[location?.latitude,location?.longitude]})
+    axios.post('http://43.204.107.200:3000/api/v1/user/isinside',{points:[location?.latitude,location?.longitude]})
     .then((res)=>{
       if(res.data.isInside){
         setPresent(true);
